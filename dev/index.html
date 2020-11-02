@@ -1,20 +1,40 @@
 <!doctype html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>&lt;wcl-button> Demo</title>
-    <script type="module" src="../wcl-button.js"></script>
-    <style>
-      p {
-        border: solid 1px blue;
-        padding: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <wcl-button name="teste da nicole">
-      <p>This is child content</p>
-    </wcl-button>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>&lt;wcl-button> Demo</title>
+  <script type="module" src="../wcl-button.js"></script>
+  <style>
+    wcl-button {
+      margin: 8px;
+      display: block;
+    }
+
+    wcl-button.teste {
+      --button-primary-background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <wcl-button label="default"></wcl-button>
+  <wcl-button label="default | disabled" disabled="true"></wcl-button>
+  <wcl-button label="deve ser azul" class="teste" type="primary"></wcl-button>
+  <wcl-button label="deve ser amarelo" type="primary"></wcl-button>
+  <wcl-button label="primary | disabled" type="primary" disabled="true"></wcl-button>
+  <wcl-button label="secondary" type="secondary"></wcl-button>
+  <wcl-button label="secondary | disabled" type="secondary" disabled="true"></wcl-button>
+
+
+  <script>
+    function teste() {
+      console.log('função de fora')
+    }
+    const buttons = document.querySelectorAll('wcl-button');
+    buttons.forEach(button => button.addEventListener('clickButton', teste));
+  </script>
+</body>
+
 </html>
