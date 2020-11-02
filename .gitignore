@@ -3,7 +3,7 @@
 /test/
 
 # top level source
-my-element.js
-my-element.js.map
-my-element.d.ts
-my-element.d.ts.map
+wcl-button.js
+wcl-button.js.map
+wcl-button.d.ts
+wcl-button.d.ts.map

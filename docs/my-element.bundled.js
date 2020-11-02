@@ -196,4 +196,4 @@ var Z=function(t,s,i,e){for(var n,o=arguments.length,r=o<3?s:null===e?e=Object.g
       padding: 16px;
       max-width: 800px;
     }
-  `,Z([D()],tt.prototype,"name",void 0),Z([D({type:Number})],tt.prototype,"count",void 0),tt=Z([(st="my-element",t=>"function"==typeof t?((t,s)=>(window.customElements.define(t,s),s))(st,t):((t,s)=>{const{kind:i,elements:e}=s;return{kind:i,elements:e,finisher(s){window.customElements.define(t,s)}}})(st,t))],tt);export{tt as MyElement};
+  `,Z([D()],tt.prototype,"name",void 0),Z([D({type:Number})],tt.prototype,"count",void 0),tt=Z([(st="wcl-button",t=>"function"==typeof t?((t,s)=>(window.customElements.define(t,s),s))(st,t):((t,s)=>{const{kind:i,elements:e}=s;return{kind:i,elements:e,finisher(s){window.customElements.define(t,s)}}})(st,t))],tt);export{tt as Button};

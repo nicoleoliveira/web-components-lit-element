@@ -20,8 +20,8 @@ import {LitElement, html, customElement, property, css} from 'lit-element';
  * @slot - This element has a slot
  * @csspart button - The button
  */
-@customElement('my-element')
-export class MyElement extends LitElement {
+@customElement('wcl-button')
+export class Button extends LitElement {
   static styles = css`
     :host {
       display: block;
@@ -47,7 +47,7 @@ export class MyElement extends LitElement {
     return html`
       <h1>Hello, ${this.name}!</h1>
       <button @click=${this._onClick} part="button">
-        Click Count: ${this.count}
+        Click Count nicole: ${this.count}
       </button>
       <slot></slot>
     `;
@@ -64,6 +64,6 @@ export class MyElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'my-element': MyElement;
+    'wcl-button': Button;
   }
 }

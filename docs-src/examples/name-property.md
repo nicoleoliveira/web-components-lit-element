@@ -1,15 +1,15 @@
 ---
 layout: example.11ty.cjs
-title: <my-element> ⌲ Examples ⌲ Name Property
+title: <wcl-button> ⌲ Examples ⌲ Name Property
 tags: example
 name: Name Property
 description: Setting the name property
 ---
 
-<my-element name="Earth"></my-element>
+<wcl-button name="Earth"></wcl-button>
 
 <h3>HTML</h3>
 
 ```html
-<my-element name="Earth"></my-element>
+<wcl-button name="Earth"></wcl-button>
 ```
