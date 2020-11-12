@@ -1,6 +1,9 @@
 /node_modules/
 /lib/
 /test/
+/build-modern
+/build-universal
+/dist
 
 # top level source
 wcl-button.js

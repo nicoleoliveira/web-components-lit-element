@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <title>Demo</title>
+</head>
+
+<body>
+    <h1>Componente: botão</h1>
+    <h2>Build modnomod</h2>
+    <wcl-button label="default"></wcl-button>
+    <wcl-button label="default | disabled" disabled="true"></wcl-button>
+    <wcl-button label="deve ser azul" class="teste" type="primary"></wcl-button>
+    <wcl-button label="deve ser amarelo" type="primary"></wcl-button>
+    <wcl-button label="primary | disabled" type="primary" disabled="true"></wcl-button>
+    <wcl-button label="secondary" type="secondary"></wcl-button>
+    <wcl-button label="secondary | disabled" type="secondary" disabled="true"></wcl-button>
+
+
+    <script>
+        // HACK(keanulee): The Redux package assumes `process` exists - mock it here before
+        // the module is loaded.
+        window.process = {
+            env: {
+                NODE_ENV: 'production'
+            }
+        };
+    </script>
+
+    <script nomodule src="../build-universall/nomodule/src/babel-polyfills-nomodule.js"></script>
+
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script>
+        // Subset of fetch polyfill for IE11 (supports GET requests for JSON only).
+        // Requires Promise to be defined.
+        window.fetch = window.fetch || function (url) {
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    resolve({
+                        json: function () {
+                            return new Promise(function (resolve, reject) {
+                                try {
+                                    resolve(JSON.parse(xhr.responseText));
+                                } catch (e) {
+                                    reject(e);
+                                }
+                            });
+                        }
+                    });
+                };
+                xhr.onerror = reject;
+                xhr.open('GET', url);
+                xhr.send();
+            });
+        };
+    </script>
+    <script nomodule src="node_modules/systemjs/dist/s.min.js"></script>
+    <script nomodule>
+        System.import('../dist/wcl-button.js');
+    </script>
+    <script type="module" src="../dist/wcl-button.js"></script>
+
+</body>
+
+</html>

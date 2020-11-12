@@ -4,8 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>&lt;wcl-button> Demo</title>
-  <script type="module" src="../wcl-button.js"></script>
+  <title>Demo</title>
   <style>
     wcl-button {
       margin: 8px;
@@ -19,6 +18,7 @@
 </head>
 
 <body>
+  <h1>Componente: botão</h1>
   <wcl-button label="default"></wcl-button>
   <wcl-button label="default | disabled" disabled="true"></wcl-button>
   <wcl-button label="deve ser azul" class="teste" type="primary"></wcl-button>
@@ -34,6 +34,18 @@
     }
     const buttons = document.querySelectorAll('wcl-button');
     buttons.forEach(button => button.addEventListener('clickButton', teste));
+  </script>
+  <script src="build-universal/nomodule/src/babel-polyfills-nomodule.js"></script>
+
+  <!-- Load Web Components polyfills, if needed. -->
+  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <!-- SystemJS loader -->
+  <script src="node_modules/systemjs/dist/s.min.js"></script>
+
+  <!-- Use SystemJS to load the application bundle -->
+  <script>
+    System.import('../dist/wcl-button.js');
   </script>
 </body>
 
