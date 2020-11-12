@@ -28,12 +28,40 @@
   <wcl-button label="secondary | disabled" type="secondary" disabled="true"></wcl-button>
 
 
+  <wcl-button label="Muda tema" type="primary" id="mudaTema"></wcl-button>
+
+
   <script>
     function teste() {
       console.log('função de fora')
     }
     const buttons = document.querySelectorAll('wcl-button');
-    buttons.forEach(button => button.addEventListener('clickButton', teste));
+    buttons.forEach(button => button.addEventListener('clickButton', teste)); 
+
+    var darkMode = false;
+    const darkRule = `
+      html {
+        --color-primary: white;
+        --color-secondary: black;
+        background-color: #000;
+      }
+    `
+
+    const lightRule = `
+      html {
+        --color-primary: #e91e63;
+        --color-secondary: green;
+      }
+      `
+
+    const button = document.getElementById('mudaTema').addEventListener('clickButton', () => {
+      const sheet = new CSSStyleSheet();
+
+      const theme = darkMode ? lightRule : darkRule;
+      sheet.replaceSync(theme);
+      darkMode = !darkMode;
+      document.adoptedStyleSheets = [sheet];
+    });
   </script>
   <script src="build-universal/nomodule/src/babel-polyfills-nomodule.js"></script>
 
